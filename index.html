@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Timeline</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to CSS file -->
+</head>
+<body>
+    <div class="timeline-container">
+        <!-- Display Content -->
+        <div class="timeline-content" id="timelineContent">
+            <img src="images.png" alt="Timeline Image" class="timeline-image" id="timelineImage">
+            <div class="timeline">
+                <h2 class="timeline-title" id="timelineTitle"></h2>
+                <p id="timelineDescription"></p>
+            </div>
+        </div>
+        
+        <!-- Timeline Line -->
+        <div class="timeline-line"></div>
+        
+        <!-- Timeline Points -->
+        <div class="timeline-points" id="timelinePoints"></div>
+        
+        <!-- Timeline Years -->
+        <div class="timeline-years" id="timelineYears"></div>
+    </div>
+
+    <!-- Link to JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>

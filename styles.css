@@ -1,0 +1,202 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.timeline-container {
+    position: relative;
+    padding-top: 120px;
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.timeline-points {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin: 30px 0;
+    margin-top: 100px;
+    align-items: center;
+    width: 100%;
+}
+
+.timeline-point {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid #e0e0e0;
+    position: relative;
+}
+
+/* This connects the timeline points to the next one */
+.timeline-point:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 100%; /* Start the line at the right side of the point */
+    width: calc(100% + 125px); /* Calculate width to reach the next point */
+    height: 2px;
+    background-color: #e0e0e0; /* Default line color */
+    z-index: -1; /* Ensures the connecting line is below the points */
+    transform: translateY(-50%); /* Center line vertically */
+}
+
+/* Active points */
+.timeline-point.active {
+    background-color: #fff;
+    border: 3px solid #3498db;
+    transform: scale(1);
+}
+
+/* Active state line connection */
+.timeline-point.active:not(:last-child)::after {
+    background-color: #3498db; /* Active line color */
+}
+
+.timeline-years {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.timeline-year {
+    font-size: 12px;
+    color: #777;
+}
+
+.timeline-content {
+    margin-bottom: 30px;
+    opacity: 0;
+    transition: opacity 0.3s ease;  
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    text-align: left;
+    justify-content: flex-start;
+    margin-left: 200px;
+    margin-right: 100px;
+}
+
+.timeline-content.active {
+    opacity: 1;
+}
+
+.timeline-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+    object-fit: cover;
+}
+
+.timeline-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+.timeline-description {
+    font-size: 2px;
+    color: #555;
+    
+}
+
+.timeline {
+    text-align: start;
+    justify-items: center;
+}
+
+/* Responsive Media Queries */
+
+/* Tablet devices (width between 768px and 1024px) */
+@media (max-width: 1024px) {
+    .timeline-content {
+        flex-direction: column; /* Stack the image above the text */
+        align-items: center; /* Center align items */
+        text-align: center; /* Center align text */
+        gap: 20px;
+        display: flex;
+    }
+
+    .timeline-image {
+        margin: 0 0 20px 0; /* Reset margin to 0 on the sides, 20px at the bottom */
+    }
+
+    .timeline-text {
+        max-width: 100%; /* Allow text to take full width */
+    }
+
+    .timeline-points {
+        flex-wrap: wrap; /* Allow timeline points to wrap */
+    }
+
+    .timeline-year {
+        font-size: 10px; /* Reduce year font size for better fit */
+    }
+}
+
+/* Mobile devices (width up to 768px) */
+@media (max-width: 768px) {
+    .timeline-container {
+        padding: 10px; /* Reduce padding */
+    }
+
+    .timeline-points {
+        justify-content: space-around; /* Adjust space around timeline points */
+    }
+
+    .timeline-point {
+        width: 15px; /* Reduce size of timeline points */
+        height: 15px; /* Reduce size of timeline points */
+    }
+
+    .timeline-point.active {
+        transform: scale(1.1); /* Slightly reduce the scale on active state */
+    }
+
+    .timeline-year {
+        font-size: 9px; /* Further reduce font size for the year */
+    }
+
+    .timeline-text {
+        padding: 0 10px; /* Add some padding for better readability */
+    }
+
+    .timeline-content {
+        flex-direction: column; /* Stack the image above the text */
+        align-items: center; /* Center align items */
+        text-align: center; /* Center align text */
+        gap: 20px;
+        display: flex;
+    }
+}
+
+/* Very small mobile devices (width up to 480px) */
+@media (max-width: 480px) {
+    .timeline-content {
+        margin-bottom: 20px; /* Reduce bottom margin for compact layout */
+    }
+
+    .timeline-title {
+        font-size: 20px; /* Reduce title font size */
+    }
+
+    .timeline-description {
+        font-size: 14px; /* Reduce description font size */
+    }
+
+    .timeline-year {
+        display: none; /* Hide year text for more space */
+    }
+
+    .timeline-points {
+        justify-content: center; /* Center points on smaller screens */
+    }
+}
